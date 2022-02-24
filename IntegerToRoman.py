@@ -19,13 +19,15 @@ class Solution(object):
         
         values = number.keys() #store the key values
         result = []            
-# q stores the quotient and num stores the remainder when divided by the keys in reversed order.If quotient is greater than 0 ,temp will store the value present at that key and multiply it with the quotient to get how many sum of it is actually present in the num.
+# q stores the quotient and num stores the remainder when divided by the keys in reversed order.
+# If quotient is greater than 0 ,temp will store the value present at that key and multiply it with the 
+# quotient to get how many sum of it is actually present in the num.
 
-        for val in reversed(values):   
+        values.sort(reverse=True)
+        for val in values:   
             q, num = divmod(num, val)
             if q > 0:
                 temp = [number[val]] * q
                 result.extend(temp)
-                        
+               
         return ''.join(result)
-        
