@@ -1,12 +1,11 @@
 class Solution:
     def simplifyPath(self, path: str) -> str:
-        stk = []
-        
-        for p in path.split('/'):
-            if p in {'', '.'}:
+        stk = []    
+        for p in path.split('/'):       
+            if p in {'', '.'}:         
                 continue
                 
-            if stk and p == '..':
+            if stk and p == '..':       
                 stk.pop()
                 
             if p != '..':
