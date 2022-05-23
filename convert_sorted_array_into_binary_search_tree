@@ -1,0 +1,11 @@
+class Solution:
+    def sortedArrayToBST(self, nums: List[int]) -> Optional[TreeNode]:
+        def dfs(root, curr) :
+            if not curr :
+                return None
+            root = TreeNode(curr[len(curr)//2])
+            root.left = dfs(root.left, curr[:len(curr)//2])
+            root.right = dfs(root.right, curr[(len(curr)//2)+1:])
+            return root
+        root = None
+        return dfs(root, nums)
